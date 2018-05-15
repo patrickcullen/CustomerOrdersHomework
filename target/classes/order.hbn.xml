@@ -12,6 +12,7 @@
         <property name="description" type="string" column="description"/>
         <property name="amount" type="int" column="amount"/>
         <property name="total" type="int" column="total"/>
+
     </class>
 
 </hibernate-mapping>

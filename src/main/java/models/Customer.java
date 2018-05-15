@@ -1,11 +1,18 @@
 package models;
 
+import javax.persistence.*;
+import java.util.Set;
+
+@Entity
+@Table(name="customers")
+
 public class Customer {
 
     private String firstName;
     private String lastName;
     private int age;
     private int id;
+    private Set<Order> orders;
 
     public Customer(String firstName, String lastName, int age) {
         this.firstName = firstName;
@@ -17,6 +24,7 @@ public class Customer {
 
     }
 
+    @Column(name="firstName")
     public String getFirstName() {
         return firstName;
     }
@@ -25,6 +33,7 @@ public class Customer {
         this.firstName = firstName;
     }
 
+    @Column(name="lastName")
     public String getLastName() {
         return lastName;
     }
@@ -33,6 +42,7 @@ public class Customer {
         this.lastName = lastName;
     }
 
+    @Column(name="age")
     public int getAge() {
         return age;
     }
@@ -41,6 +51,9 @@ public class Customer {
         this.age = age;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     public int getId() {
         return id;
     }
